@@ -25,7 +25,7 @@ public class Cliente {
 	@Column(nullable = false, length = 11)
 	private String cpf;
 	
-	@Column(name = "data_cadastro")
+	@Column(name = "data_cadastro", updatable = false)
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
 	
@@ -47,6 +47,14 @@ public class Cliente {
 		setDataCadastro(LocalDate.now());
 	}
 	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
 	public String getNome() {
 		return nome;
 	}
