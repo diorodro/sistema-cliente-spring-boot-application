@@ -17,7 +17,7 @@ public class ClienteApplication {
 	@Bean
 	public CommandLineRunner run(@Autowired ClienteRepository repository) {
 		return args ->{
-			Cliente cliente = new Cliente("rumario", "invalidado",LocalDate.of(2020, 10, 20));
+			Cliente cliente = new Cliente("rumario", "2348234823",LocalDate.of(2020, 10, 20));
 			repository.save(cliente);
 		};
 		
