@@ -24,6 +24,14 @@ public class Cliente {
 	
 	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro;
+	
+	public Cliente() {}
+
+	public Cliente(String nome, String cpf, LocalDate dataCadastro) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.dataCadastro = dataCadastro;
+	}
 
 	public String getNome() {
 		return nome;

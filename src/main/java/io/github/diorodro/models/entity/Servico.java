@@ -27,6 +27,14 @@ public class Servico {
 	@Column
 	private BigDecimal valor;
 
+	public Servico() {}
+
+	public Servico(String descricao, Cliente cliente, BigDecimal valor) {
+		this.descricao = descricao;
+		this.cliente = cliente;
+		this.valor = valor;
+	}
+
 	public String getDescricao() {
 		return descricao;
 	}
