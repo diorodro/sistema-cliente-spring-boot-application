@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.PrePersist;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 @Entity
@@ -23,9 +26,15 @@ public class Cliente {
 	private String cpf;
 	
 	@Column(name = "data_cadastro")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataCadastro;
 	
 	public Cliente() {}
+
+	public Cliente(String nome, String cpf) {
+		this.nome = nome;
+		this.cpf = cpf;
+	}
 
 	public Cliente(String nome, String cpf, LocalDate dataCadastro) {
 		this.nome = nome;
@@ -33,6 +42,11 @@ public class Cliente {
 		this.dataCadastro = dataCadastro;
 	}
 
+	@PrePersist
+	public void prePersist() {
+		setDataCadastro(LocalDate.now());
+	}
+	
 	public String getNome() {
 		return nome;
 	}
